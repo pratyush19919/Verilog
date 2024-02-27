@@ -1,0 +1,116 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xBB49FA3234AD1C0F",
+      "device": "xc7a35tcpg236-1",
+      "gen_directory": "../../../../COunter.gen/sources_1/bd/design_2",
+      "name": "design_2",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2022.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "vio_0": "",
+      "counter_32_0": ""
+    },
+    "ports": {
+      "clk_0": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "design_2_clk_0",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      }
+    },
+    "components": {
+      "vio_0": {
+        "vlnv": "xilinx.com:ip:vio:3.0",
+        "xci_name": "design_2_vio_0_0",
+        "xci_path": "ip\\design_2_vio_0_0\\design_2_vio_0_0.xci",
+        "inst_hier_path": "vio_0",
+        "parameters": {
+          "C_NUM_PROBE_OUT": {
+            "value": "1"
+          }
+        }
+      },
+      "counter_32_0": {
+        "vlnv": "xilinx.com:module_ref:counter_32:1.0",
+        "xci_name": "design_2_counter_32_0_0",
+        "xci_path": "ip\\design_2_counter_32_0_0\\design_2_counter_32_0_0.xci",
+        "inst_hier_path": "counter_32_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "counter_32",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "count": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "design_2_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          }
+        }
+      }
+    },
+    "nets": {
+      "clk_0_1": {
+        "ports": [
+          "clk_0",
+          "counter_32_0/clk",
+          "vio_0/clk"
+        ]
+      },
+      "counter_32_0_count": {
+        "ports": [
+          "counter_32_0/count",
+          "vio_0/probe_in0"
+        ]
+      },
+      "vio_0_probe_out0": {
+        "ports": [
+          "vio_0/probe_out0",
+          "counter_32_0/rst"
+        ]
+      }
+    }
+  }
+}
